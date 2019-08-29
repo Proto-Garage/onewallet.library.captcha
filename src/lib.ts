@@ -22,13 +22,13 @@ export function rotate (params: { x: number, y: number }, theta: number) {
 export function loadFonts() {
   const regex = /^(.*)-Regular\.ttf$/;
   const fonts = R.map<string, { font: string; file: string }>(font => {
-    const files = fs.readdirSync(path.resolve(process.cwd(), `fonts/${font}`));
+    const files = fs.readdirSync(path.resolve(__dirname, `../fonts/${font}`));
 
     return {
       font,
       file: `fonts/${font}/${R.find<string>(item => regex.test(item))(files)}`
     };
-  })(fs.readdirSync(path.resolve(process.cwd(), 'fonts')));
+  })(fs.readdirSync(path.resolve(__dirname, '../fonts')));
   fonts.forEach(({ font, file }) => {
     registerFont(file, { family: font })
   });
