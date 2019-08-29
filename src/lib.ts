@@ -54,6 +54,11 @@ export function generateCaptchaImage(text: string): string {
     const x = index * 40 + 20 + random() * 10;
     const y = 30 + random() * 10;
     const { x: xx, y: yy } = rotate({ x, y }, -theta);
+    ctx.fillStyle = '#44aa44';
+    ctx.shadowColor = "#229922";
+    ctx.shadowOffsetX = random() * 4;
+    ctx.shadowOffsetY = random() * 4;
+    ctx.shadowBlur = 4;
     ctx.rotate(theta);
     ctx.fillText(text.charAt(index), xx - width / 2, yy + actualBoundingBoxAscent / 2);
     ctx.rotate(-theta);
