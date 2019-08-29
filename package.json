@@ -1,0 +1,50 @@
+{
+  "name": "onewallet.library.captcha",
+  "version": "0.1.0",
+  "description": "Library for generating captcha",
+  "main": "build/index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.ts",
+    "clean": "rimraf /build",
+    "build": "npm run clean && tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "DEBUG=info*,warn*,error* TS_NODE_PROJECT=tsconfig.json TS_NODE_FILES=true mocha ./test/**/*.spec.ts",
+    "postinstall": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Proto-Garage/onewallet.library.captcha.git"
+  },
+  "author": "High Output Ventures",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chance": "^1.0.4",
+    "@types/lru-cache": "^5.1.0",
+    "@types/mocha": "^5.2.7",
+    "@typescript-eslint/eslint-plugin": "~1.6.0",
+    "@typescript-eslint/parser": "~1.6.0",
+    "chai": "^4.2.0",
+    "chance": "^1.0.18",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "husky": "^2.3.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/lodash.sample": "^4.2.6",
+    "@types/ramda": "^0.26.21",
+    "canvas": "^2.6.0",
+    "lodash.sample": "^4.2.1",
+    "ramda": "^0.26.1"
+  },
+  "peerDependencies": {
+    "rimraf": "^3.0.0",
+    "typescript": "^3.5.3"
+  }
+}
