@@ -69,10 +69,18 @@ export function generateCaptchaImage(text: string): string {
   return canvas.toDataURL();
 }
 
-export function generateCaptchaString(secret: Buffer, message: string) {
-  const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+export function generateCaptchaString(
+  secret: Buffer,
+  message: string,
+  options?: {
+    pool?: string;
+    algorithm?: string;
+  },
+) {
+  const pool = options?.pool || 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const algorithm = options?.algorithm || 'sha256';
 
-  const hmac = crypto.createHmac('sha256', secret);
+  const hmac = crypto.createHmac(algorithm, secret);
 
   const digest = hmac
     .update(message)

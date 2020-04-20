@@ -13,6 +13,11 @@ describe('generateCaptchaString', () => {
     expect(/^[A-Z0-9]{4}$/.test(captcha)).to.be.ok;
   });
 
+  it('should generate correct captcha string', () => {
+    const captcha = generateCaptchaString(secret, message, { pool: '0123456789' });
+    expect(/^[0-9]{4}$/.test(captcha)).to.be.ok;
+  });
+
   it('should generate unique captcha strings', () => {
     const captchas = R.times(() => generateCaptchaString(secret, message))(100);
 

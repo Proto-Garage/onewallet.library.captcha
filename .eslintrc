@@ -24,6 +24,7 @@
     "no-dupe-class-members": "off",
     "func-names": "off",
     "no-unused-expressions": "off",
+    "import/extensions": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/explicit-function-return-type": "off"
